@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Teacher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_forms.css') }}">
+</head>
+<body>
+
+<div class="page-container">
+    <h2>👩‍🏫 Add Teacher</h2>
+    <p class="subtitle">Create a new teacher account</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+  <input name="name" placeholder="Name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button type="submit">Add Teacher</button>
+</form>
+
+
+    <div class="back-link">
+        <a href="/dashboard">← Back to Admin Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

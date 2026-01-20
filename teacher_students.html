@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher | Students</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #0f766e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f0fdfa;
+            color: #065f46;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .back {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: white;
+            background: #0f766e;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>👨‍🏫 Teacher Dashboard</h1>
+    <p>View all enrolled students</p>
+</div>
+
+<div class="container">
+    <h2>📋 Students List</h2>
+
+    {% if students %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No students found.</p>
+    {% endif %}
+
+    <div class="back">
+        <a href="/dashboard">⬅ Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

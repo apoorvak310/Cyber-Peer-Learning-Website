@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game Over | Cyber Peer Learning</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6366f1, #60a5fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            width: 380px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        .card h1 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #111827;
+        }
+
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin: 20px 0;
+        }
+
+        .message {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-dashboard {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-dashboard:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        .btn-progress {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .btn-progress:hover {
+            background: #d1d5db;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Game Over</h1>
+
+    <div class="score">
+        Your Score: {{ score }}
+    </div>
+
+    <div class="message">
+        Great job! You’ve completed the game.<br>
+        Keep playing to improve your cyber safety skills.
+    </div>
+
+    <div class="actions">
+        <a href="{{ url_for('dashboard') }}" class = "btn btn-progress">Back to Dashboard</a>
+
+
+
+        <a href="/student/progress" class="btn btn-progress">
+            View My Progress
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

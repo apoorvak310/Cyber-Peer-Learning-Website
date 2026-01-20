@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_users.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>👥 All Users</h2>
+    <p class="subtitle">Teachers and students registered in this school</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role|capitalize }}</td>
+
+                <td>
+                    {% if user.role != 'admin' %}
+                        <form method="POST"
+                              action="/admin/delete-user/{{ user.user_id }}"
+                              onsubmit="return confirm('Are you sure you want to remove this user?');"
+                              style="display:inline;">
+                            <button type="submit" class="delete-btn">Remove</button>
+                        </form>
+                    {% else %}
+                        <span class="disabled">—</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="back">
+        <a href="/dashboard">← Back to Admin Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

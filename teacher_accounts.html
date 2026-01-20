@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher | Student Accounts</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .header {
+            background: #0f766e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #ecfdf5;
+            color: #065f46;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #0f766e;
+            color: white;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📋 Student & Teacher Accounts</h1>
+    <p>View all user accounts in your school</p>
+</div>
+
+<div class="container">
+    <h2>👥 Accounts List</h2>
+
+    {% if users %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role | capitalize }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No users found.</p>
+    {% endif %}
+
+    <div class="back">
+        <a href="/dashboard">⬅ Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

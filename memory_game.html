@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Match</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memory_game.css') }}">
+</head>
+<body>
+
+<div class="page">
+
+    <h2>Memory Match ({{ level|capitalize }})</h2>
+
+    <div class="stats">
+        <span>Score: <strong id="scoreDisplay">0</strong></span>
+        <span>Moves: <strong id="moveDisplay">0</strong></span>
+    </div>
+
+    <div class="game-container" id="gameBoard">
+        {% for pair in pairs %}
+            <div class="card" data-value="{{ pair.term }}">{{ pair.term }}</div>
+            <div class="card" data-value="{{ pair.term }}">{{ pair.match_text }}</div>
+        {% endfor %}
+    </div>
+
+    <form method="POST" class="finish-form">
+        <input type="hidden" name="score" id="finalScore" value="0">
+        <input type="hidden" name="level" value="{{ level }}">
+        <button type="submit">Finish Game</button>
+    </form>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/memory_game.js') }}"></script>
+</body>
+</html>

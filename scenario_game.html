@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scenario Based Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scenario_game.css') }}">
+</head>
+<body>
+
+<div class="game-box">
+    <h2>Scenario Based Game</h2>
+
+    <p class="status">
+        Scenario {{ index }} of {{ total }} | Score: {{ score }}
+    </p>
+
+    <div class="question">
+        {{ question }}
+    </div>
+
+    <form method="POST">
+        {% for key, value in options.items() %}
+            <button type="submit" name="option" value="{{ key }}">
+                {{ key }}. {{ value }}
+            </button>
+        {% endfor %}
+    </form>
+
+    <a href="/dashboard" class="exit">Exit Game</a>
+</div>
+
+</body>
+</html>

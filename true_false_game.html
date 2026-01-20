@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>True or False Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/true_false_game.css') }}">
+</head>
+<body>
+
+<div class="game-container">
+    <h2>True / False Game</h2>
+
+    <p class="progress">
+        Question {{ index }} of {{ total }} | Score: {{ score }}
+    </p>
+
+    <div class="question-box">
+        <p>{{ question }}</p>
+    </div>
+
+    <form method="POST">
+        <button name="answer" value="true" class="true-btn">True</button>
+        <button name="answer" value="false" class="false-btn">False</button>
+    </form>
+
+    <a href="/dashboard" class="exit">Exit Game</a>
+</div>
+
+</body>
+</html>

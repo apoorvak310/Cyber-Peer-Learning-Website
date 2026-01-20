@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard_student.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        /* ===== HEADER (Lovable Style) ===== */
+        .header {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .progress-container {
+            max-width: 600px;
+            margin: 25px auto 0;
+            text-align: left;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            margin-bottom: 6px;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            overflow: hidden;
+            height: 10px;
+        }
+
+        .progress-fill {
+            width: 35%; /* static for now */
+            height: 100%;
+            background: white;
+            border-radius: 999px;
+        }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .logout {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: #ef4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== HERO HEADER ===== -->
+<div class="header">
+    <h2>Welcome back, Student 👋</h2>
+    <p>Continue your cybersecurity journey</p>
+
+    <div class="progress-container">
+        <div class="progress-label">Overall Progress — 35%</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div class="dashboard">
+    <div class="card-grid">
+
+        <a href="/student/true-false" class="card">
+            <div class="icon">✔️❌</div>
+            <h3>True / False</h3>
+            <p>Test your cyber safety knowledge</p>
+        </a>
+
+        <a href="/student/scenario" class="card">
+            <div class="icon">🧠</div>
+            <h3>Scenario Game</h3>
+            <p>Choose the safest action</p>
+        </a>
+
+        <a href="/student/memory" class="card">
+            <div class="icon">🧩</div>
+            <h3>Memory Game</h3>
+            <p>Match cyber safety cards</p>
+        </a>
+
+        <a href="/student/drag-safety" class="card">
+            <div class="icon">🧲</div>
+            <h3>Drag & Safety</h3>
+            <p>Classify safe and unsafe actions</p>
+        </a>
+
+        <a href="/student/quiz" class="card">
+            <div class="icon">🧠</div>
+            <h3>Quiz Challenge</h3>
+            <p>Test your cyber safety knowledge</p>
+        </a>
+
+        <a href="/student/phish" class="card">
+            <div class="icon">🎣</div>
+            <h3>Spot the Phish</h3>
+            <p>Identify phishing messages</p>
+        </a>
+
+        <a href="/student/password-game" class="card">
+            <div class="icon">🔐</div>
+            <h3>Password Strength</h3>
+            <p>Build a secure password</p>
+        </a>
+
+        <a href="/student/progress" class="card">
+            <div class="icon">📊</div>
+            <h3>My Progress</h3>
+            <p>View your game scores</p>
+        </a>
+
+    </div>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+</body>
+</html>

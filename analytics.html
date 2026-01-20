@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Your Game Performance</h2>
+
+<canvas id="progressChart" width="400" height="200"></canvas>
+
+<!-- Inject data safely -->
+<script type="application/json" id="chart-data">
+{
+  "labels": {{ data | map(attribute=0) | list | tojson }},
+  "scores": {{ data | map(attribute=1) | list | tojson }}
+}
+</script>
+
+<script>
+const chartData = JSON.parse(
+    document.getElementById("chart-data").textContent
+);
+
+new Chart(document.getElementById("progressChart"), {
+    type: "bar",
+    data: {
+        labels: chartData.labels,
+        datasets: [{
+            label: "Score",
+            data: chartData.scores,
+            backgroundColor: "#6366f1"
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

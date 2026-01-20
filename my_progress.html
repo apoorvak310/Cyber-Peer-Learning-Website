@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Progress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/progress.css') }}">
+</head>
+<body>
+
+<h2>📊 My Game Progress</h2>
+
+{% if progress %}
+<table>
+    <tr>
+        <th>Game</th>
+        <th>Score</th>
+    </tr>
+
+    {% for row in progress %}
+    <tr>
+        <td>{{ row["game_type"] }}</td>
+        <td>{{ row["score"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No games played yet.</p>
+{% endif %}
+
+<a href="/dashboard" class="back">⬅ Back to Dashboard</a>
+
+</body>
+</html>

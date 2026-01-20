@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag & Safety Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/drag_safety.css') }}">
+</head>
+<body>
+
+<h2>Drag & Drop Safety ({{ level|capitalize }})</h2>
+<p>Drag each action into the correct box</p>
+
+<p>Score: <span id="scoreDisplay">0</span></p>
+
+<div class="game-area">
+
+    <div class="actions">
+        {% for text, is_safe in actions %}
+        <div class="card" draggable="true" data-safe="{{ is_safe }}">
+            {{ text }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="zones">
+        <div class="drop-zone safe" data-zone="true">✅ Safe</div>
+        <div class="drop-zone unsafe" data-zone="false">❌ Unsafe</div>
+    </div>
+
+</div>
+
+<form method="POST">
+    <input type="hidden" name="score" id="finalScore" value="0">
+    <button type="submit">Finish Game</button>
+</form>
+
+<script src="{{ url_for('static', filename='js/drag_safety.js') }}"></script>
+</body>
+</html>

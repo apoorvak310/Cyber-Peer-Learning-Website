@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spot the Phish</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/phish_game.css') }}">
+</head>
+<body>
+
+<div class="phish-box">
+    <h2>🎣 Spot the Phish</h2>
+
+    <p class="status">
+        Scenario {{ index }} / {{ total }} | Score: {{ score }}
+    </p>
+
+    <div class="message-box">
+        {{ text }}
+    </div>
+
+    <form method="POST">
+        <button type="submit" name="choice" value="phish" class="phish-btn">
+            🚨 Phishing
+        </button>
+
+        <button type="submit" name="choice" value="safe" class="safe-btn">
+            ✅ Safe
+        </button>
+    </form>
+
+    <a href="/dashboard" class="exit">Exit Game</a>
+</div>
+
+</body>
+</html>

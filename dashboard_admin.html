@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+        }
+
+        .header {
+            background: #1f2933;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .header p {
+            margin-top: 8px;
+            opacity: 0.85;
+        }
+
+        .dashboard {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #111827;
+            font-weight: bold;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            text-decoration: none;
+            color: #111827;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0 8px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .info-section {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .logout {
+            margin: 50px 0 20px;
+            text-align: center;
+        }
+
+        .logout a {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Welcome, Admin 🛡️</h2>
+    <p>Manage schools, users, and access control</p>
+</div>
+
+<div class="dashboard">
+
+    <div class="section-title">⚙️ Administration Tools</div>
+
+    <div class="card-grid">
+
+        <a href="/admin/add-teacher" class="card">
+            <div class="icon">👩‍🏫</div>
+            <h3>Add Teacher</h3>
+            <p>Create new teacher accounts</p>
+        </a>
+
+        <a href="/admin/add-student" class="card">
+            <div class="icon">👨‍🎓</div>
+            <h3>Add Student</h3>
+            <p>Enroll students into the system</p>
+        </a>
+
+        <a href="/admin/users" class="card">
+            <div class="icon">📋</div>
+            <h3>View All Users</h3>
+            <p>Teachers and students list</p>
+        </a>
+
+    </div>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h4>🔐 Security</h4>
+            <p>Password hashing & audit logs planned</p>
+        </div>
+
+        <div class="info-box">
+            <h4>📊 Analytics</h4>
+            <p>Admin-level performance reports coming soon</p>
+        </div>
+    </div>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

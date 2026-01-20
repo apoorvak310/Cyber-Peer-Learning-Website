@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz_game.css') }}">
+</head>
+<body>
+
+<div class="quiz-box">
+    <h2>🧠 Quiz Challenge</h2>
+
+    <p class="status">
+        Question {{ index }} / {{ total }} | Score: {{ score }}
+    </p>
+
+    <div class="question">
+        {{ question }}
+    </div>
+
+    <form method="POST">
+        {% for option in options %}
+        <button type="submit" name="option" value="{{ loop.index0 }}">
+            {{ option }}
+        </button>
+        {% endfor %}
+    </form>
+
+    <a href="/dashboard" class="exit">Exit Quiz</a>
+</div>
+
+</body>
+</html>
